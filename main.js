@@ -22,7 +22,7 @@ async function run() {
       pull_number: context.number,
       body: 'Testing comment',
       commit_id: context.pull_request.base.sha,
-      path: 'Testing',
+      path: 'main.js',
       position: 1,
 
 
