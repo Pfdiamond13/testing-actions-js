@@ -19,7 +19,7 @@ async function run() {
       repo: context.repository.full_name.split('/')[1],
       pull_number: context.number,
       body: 'Testing comment',
-      commit_id: context.sha,
+      commit_id: context.head.sha,
       path: 'Testing',
       position: 1,
 
