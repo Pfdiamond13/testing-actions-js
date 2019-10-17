@@ -24,15 +24,21 @@ async function run() {
     path: 'test.txt',
     position: 1,});
   
-    const prComment = await octokit.pulls.createComment({
+    // const prComment = await octokit.pulls.createComment({
+    //   owner: context.repository.full_name.split('/')[0],
+    //   repo: context.repository.full_name.split('/')[1],
+    //   pull_number: context.number,
+    //   body: 'Testing comment',
+    //   commit_id: context.pull_request.head.sha,
+    //   path: 'main.js',
+    //   position: 1,
+
+    // })
+    const normalComment = await octokit.issues.createComment({
       owner: context.repository.full_name.split('/')[0],
       repo: context.repository.full_name.split('/')[1],
-      pull_number: context.number,
-      body: 'Testing comment',
-      commit_id: context.pull_request.head.sha,
-      path: 'main.js',
-      position: 1,
-
+      issue_number: context.number,
+      body: 'I AM TESTING THE BODY',
     })
   } catch (error) {
     core.setFailed(error.message);
