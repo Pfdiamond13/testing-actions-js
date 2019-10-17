@@ -15,6 +15,15 @@ async function run() {
       pull_number: context.number,
     })
 
+    if (checkCommits.data.length > 1) {
+      await octokit.issues.createComment({
+        owner: context.repository.full_name.split('/')[0],
+        repo: context.repository.full_name.split('/')[1],
+        issue_number: context.number,
+        body: 'This PR contains more than one commit, please create a new PR with a single commit'
+      })
+    }
+
     console.log(checkCommits)
 
     const postChecklistAsComment = await octokit.issues.createComment({
