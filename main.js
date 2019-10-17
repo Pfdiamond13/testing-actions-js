@@ -5,14 +5,16 @@ async function run() {
   try {
     const myInput = core.getInput('myInput');
     console.log(myInput, 'INPUT');
-    const myToken = core.getInput('GITHUB_TOKEN');
+    const myToken = core.getInput('myToken');
+    const gitHubSecret = core.getInput('GITHUB_TOKEN')
 
     const octokit = new github.GitHub(myToken);
   
     const context = github.context.payload;
-  
-    console.log(myToken, 'TOKEN');
-    console.log(context, 'CONTEXT')
+
+    console.log('************', gitHubSecret, 'SECRET');
+    console.log('************', myToken, 'TOKEN');
+    console.log('************',context, 'CONTEXT')
   
     const prComment = await octokit.pulls.createComment({
       owner: context.repository.full_name.split('/')[0],
