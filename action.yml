@@ -1,0 +1,10 @@
+name: 'Tester'
+description: 'Testing Actions'
+author: 'PDIAMOND'
+inputs:
+  myInput:              # change this
+    description: 'input description here'
+    default: 'default value if applicable'
+runs:
+  using: 'node12'
+  main: 'main.js'
