@@ -38,7 +38,7 @@ async function run() {
       owner: context.repository.full_name.split('/')[0],
       repo: context.repository.full_name.split('/')[1],
       issue_number: context.number,
-      body: 'I AM TESTING THE BODY \n- [ ] Test\n- [ ] Test',
+      body: 'I AM TESTING THE BODY \n- [ ] Does the code have tests\n- [ ] Have you thought about how this scales to larger amounts of data\n- [ ] Have you thought about soft deletion\n- [ ] Does this PR include data migration and will this impact correctness of data for live customers\n - [ ] If this PR has migrations, have you run [schema annotation]',
     })
   } catch (error) {
     core.setFailed(error.message);
