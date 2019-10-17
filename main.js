@@ -38,7 +38,7 @@ async function run() {
       owner: context.repository.full_name.split('/')[0],
       repo: context.repository.full_name.split('/')[1],
       issue_number: context.number,
-      body: 'I AM TESTING THE BODY',
+      body: 'I AM TESTING THE BODY \n- [ ] Test\n- [ ] Test',
     })
   } catch (error) {
     core.setFailed(error.message);
