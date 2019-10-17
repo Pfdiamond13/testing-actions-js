@@ -11,5 +11,6 @@ jobs:
     - name: npm install
       run: npm install
     - uses: ./
-      env: ${{ secrets.GITHUB_TOKEN }}
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
