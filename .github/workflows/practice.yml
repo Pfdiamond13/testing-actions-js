@@ -6,11 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-      env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: npm install
       run: npm install
     - uses: ./
-      env: 
+      with: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

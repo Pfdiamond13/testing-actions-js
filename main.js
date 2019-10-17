@@ -8,7 +8,7 @@ async function run() {
     const myToken = core.getInput('myToken');
     const gitHubSecret = core.getInput('GITHUB_TOKEN')
 
-    const octokit = new github.GitHub(myToken);
+    const octokit = new github.GitHub(gitHubSecret);
   
     const context = github.context.payload;
 
