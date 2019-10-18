@@ -1,29 +1,36 @@
-const github = require ('@actions/github');
+const github = require('@actions/github');
 const core = require('@actions/core');
 
 async function run() {
   try {
-    const myInput = core.getInput('myInput');
-    console.log(myInput, 'INPUT');
-    const myToken = core.getInput('repo-token');
+    const gitHubSecret = core.getInput('GITHUB_TOKEN')
 
-    const octokit = new github.GitHub(myToken);
+    const octokit = new github.GitHub(gitHubSecret);
   
     const context = github.context.payload;
-  
-    console.log(myToken, 'TOKEN');
-    console.log(context, 'CONTEXT')
-  
-    const prComment = await octokit.pulls.createComment({
+
+    const checkCommits = await octokit.pulls.listCommits({
       owner: context.repository.full_name.split('/')[0],
       repo: context.repository.full_name.split('/')[1],
       pull_number: context.number,
-      body: 'Testing comment',
-      commit_id: context.sha,
-      path: 'Testing',
-      position: 1,
+    })
 
+    if (checkCommits.data.length > 1) {
+      await octokit.issues.createComment({
+        owner: context.repository.full_name.split('/')[0],
+        repo: context.repository.full_name.split('/')[1],
+        issue_number: context.number,
+        body: 'This PR contains more than one commit, please create a new PR with a single commit'
+      })
+      // core.setFailed('Too many commits')
+      
+    }
 
+    const postChecklistAsComment = await octokit.issues.createComment({
+      owner: context.repository.full_name.split('/')[0],
+      repo: context.repository.full_name.split('/')[1],
+      issue_number: context.number,
+      body: 'Please verify the following about your PR: \n- [ ] Does the code have tests\n- [ ] Have you thought about how this scales to larger amounts of data\n- [ ] Have you thought about soft deletion - does anything here need audit logging or soft delete to preserve historical data\n- [ ] Does this PR include data migration and will this impact correctness of data for live customers\n - [ ] If this PR has migrations, have you run [schema annotation]\n',
     })
   } catch (error) {
     core.setFailed(error.message);
