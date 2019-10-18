@@ -26,8 +26,6 @@ async function run() {
       
     }
 
-    console.log(checkCommits)
-
     const postChecklistAsComment = await octokit.issues.createComment({
       owner: context.repository.full_name.split('/')[0],
       repo: context.repository.full_name.split('/')[1],
