@@ -1,6 +1,6 @@
 name: 'Testing Multiple Actions'
 on:
-  project:
+  project_card:
     types: [moved]
 jobs:
   testing_action:
