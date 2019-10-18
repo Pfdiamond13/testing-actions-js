@@ -22,7 +22,7 @@ async function run() {
         issue_number: context.number,
         body: 'This PR contains more than one commit, please create a new PR with a single commit'
       })
-      core.setFailed('Too many commits')
+      // core.setFailed('Too many commits')
       
     }
 

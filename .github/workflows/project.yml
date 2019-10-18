@@ -1,6 +1,7 @@
-name: "Test PR Comment"
+name: 'Testing Multiple Actions'
 on:
-  pull_request:
+  project:
+    types: [moved]
 jobs:
   testing_action:
     runs-on: ubuntu-latest
