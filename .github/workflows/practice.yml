@@ -1,6 +1,7 @@
 name: "Test PR Comment"
 on:
-  pull_request:
+ pull_request:
+    types: [opened]
 jobs:
   testing_action:
     runs-on: ubuntu-latest
