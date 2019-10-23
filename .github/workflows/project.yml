@@ -1,5 +1,6 @@
 name: 'Testing Multiple Actions'
-on: [pull_request, issues]
+on:
+  [pull_request, issues]:
     types: [opened]
 jobs:
   testing_action:
