@@ -1,4 +1,4 @@
-name: "Test PR Comment"
+name: "PR Review Checklist"
 on:
  pull_request:
     types: [opened]
@@ -9,6 +9,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: npm install
       run: npm install
-    - uses: ./
+    - uses: ./main.js
       with: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
