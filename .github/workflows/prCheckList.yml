@@ -8,6 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: npm install
+      run: cd ./actions
       run: npm install
     - uses: ./pullRequests
       with: 
