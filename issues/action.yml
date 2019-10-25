@@ -1,5 +1,5 @@
-name: 'Tester'
-description: 'Testing Actions'
+name: 'Add Issue Card'
+description: 'Adding Issue Card'
 author: 'PDIAMOND'
 inputs:
   myInput:              # change this
@@ -7,4 +7,4 @@ inputs:
     default: 'default value if applicable'
 runs:
   using: 'node12'
-  main: 'addProjects.js'
+  main: 'addIssueCard.js'

@@ -1,5 +1,7 @@
-name: 'Testing Multiple Actions'
-on: [pull_request, issues]
+name: "Creating PR Review Checklist"
+on:
+ pull_request:
+    types: [opened]
 jobs:
   testing_action:
     runs-on: ubuntu-latest
@@ -7,6 +9,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: npm install
       run: npm install
-    - uses: ./test/
+    - uses: ./main.js
       with: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
