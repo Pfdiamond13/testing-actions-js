@@ -11,7 +11,8 @@ async function run() {
 
     const createIssueCard = await octokit.projects.createCard({
       column_id: '6843168',
-      content_id: context.issue.id
+      content_id: context.issue.id,
+      content_type: 'Issue'
     })
   } catch (error) {
     core.setFailed(error.message);
