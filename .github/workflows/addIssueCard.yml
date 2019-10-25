@@ -1,6 +1,6 @@
-name: "Test PR Comment"
+name: 'Creating Issue Card'
 on:
- pull_request:
+  issues:
     types: [opened]
 jobs:
   testing_action:
@@ -9,6 +9,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: npm install
       run: npm install
-    - uses: ./
+    - uses: ./issues
       with: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
