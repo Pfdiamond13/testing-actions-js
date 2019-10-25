@@ -8,8 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: npm install
-      run: cd ./actions
-      run: npm install
+      run: cd ./actions && npm install
     - uses: ./pullRequests
       with: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
