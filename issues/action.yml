@@ -2,7 +2,7 @@ name: 'Add Issue Card'
 description: 'Adding Issue Card'
 author: 'PDIAMOND'
 inputs:
-  myInput:              # change this
+  myInput:
     description: 'input description here'
     default: 'default value if applicable'
 runs:

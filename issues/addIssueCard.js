@@ -10,7 +10,7 @@ async function run() {
     const context = github.context.payload;
 
     const createIssueCard = await octokit.projects.createCard({
-      column_id: '6843168',
+      column_id: '6843168', // Hard Coded
       content_id: context.issue.id,
       content_type: 'Issue'
     })

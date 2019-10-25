@@ -1,10 +1,10 @@
-name: 'Tester'
-description: 'Testing Actions'
+name: 'Creating PR Card and Checklist'
+description: 'Creating PR Card and Checklist'
 author: 'PDIAMOND'
 inputs:
-  myInput:              # change this
+  myInput:
     description: 'input description here'
     default: 'default value if applicable'
 runs:
   using: 'node12'
-  main: '../addProjects.js'
+  main: 'addCheckList.js'
