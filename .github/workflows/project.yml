@@ -7,6 +7,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: npm install
       run: npm install
-    - uses: action.yml
+    - uses: ./test/
       with: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
