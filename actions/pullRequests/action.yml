@@ -1,10 +1,6 @@
 name: 'Creating PR Card and Checklist'
 description: 'Creating PR Card and Checklist'
 author: 'PDIAMOND'
-inputs:
-  myInput:
-    description: 'input description here'
-    default: 'default value if applicable'
 runs:
   using: 'node12'
   main: 'addCheckList.js'
